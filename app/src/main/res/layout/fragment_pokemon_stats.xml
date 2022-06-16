@@ -85,7 +85,7 @@
                         tools:text="charmander" />
 
                     <ImageButton
-                        android:id="@+id/imageButton"
+                        android:id="@+id/favoriteButton"
                         style="?attr/borderlessButtonStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"

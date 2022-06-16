@@ -3,11 +3,14 @@ package dev.progMob.pokeapiandroidtask.database
 import android.content.Context
 import androidx.room.*
 import dev.progMob.pokeapiandroidtask.database.converter.Converters
-import dev.progMob.pokeapiandroidtask.database.entity.User
+import dev.progMob.pokeapiandroidtask.database.dao.UserDao
+import dev.progMob.pokeapiandroidtask.database.entity.UserEntity
 
-@Database(entities = [User::class], exportSchema = false, version = 1)
+@Database(entities = [UserEntity::class], exportSchema = false, version = 1)
 @TypeConverters(Converters::class)
 abstract class PokedexDatabase : RoomDatabase() {
+
+    abstract fun userDao(): UserDao
 
     companion object {
 

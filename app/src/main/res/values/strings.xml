@@ -9,4 +9,6 @@
     <string name="thanks_header">Obrigado!</string>
     <string name="confirm_disclaimer">Continue</string>
     <string name="scroll_up_indicator">Indicador de scroll</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
 </resources>

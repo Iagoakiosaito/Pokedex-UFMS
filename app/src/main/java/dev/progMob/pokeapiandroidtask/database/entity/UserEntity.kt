@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 import dev.progMob.pokeapiandroidtask.model.PokemonResult
 
 @Entity(tableName = "user")
-data class User(
+data class UserEntity(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "user_id")
     val id: Long = 0,
