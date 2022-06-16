@@ -8,4 +8,4 @@
 .externalNativeBuild
 .cxx
 local.properties
-src/main/java/dev/progMob/pokeapiandroidtask/keys
+app/src/main/java/dev/progMob/pokeapiandroidtask/keys
