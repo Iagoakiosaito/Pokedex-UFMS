@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pokédex</string>
+    <string name="search_pokemons">Pesquise os Pokémons</string>
+    <string name="retry">Tente novamente</string>
+    <string name="tap_to_retry">Aconteceu um erro\nClique para tentar novamente</string>
+    <string name="statistics">Status base</string>
+    <string name="thanks">Alunos:\n Iago Akio Saito\nLucas Guimarães volpe\nRafael Costa Sandim</string>
+    <string name="thanks_header">Obrigado!</string>
+    <string name="confirm_disclaimer">Continue</string>
+    <string name="scroll_up_indicator">Indicador de scroll</string>
+</resources>

@@ -1,0 +1,11 @@
+*.iml
+.gradle
+/local.properties
+.idea
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+src/main/java/dev/progMob/pokeapiandroidtask/keys
