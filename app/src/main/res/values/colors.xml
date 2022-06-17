@@ -5,4 +5,8 @@
     <color name="green">#49bb79</color>
     <color name="dark_green">#1a231e</color>
     <color name="yellow">#ffcba4</color>
+    <color name="red">#ee1515</color>
+    <color name="ufms_font">#1885b3</color>
+    <color name="gray">#666666</color>
+
 </resources>
