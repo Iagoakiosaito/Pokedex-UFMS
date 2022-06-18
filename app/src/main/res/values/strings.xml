@@ -15,4 +15,11 @@
     <string name="pokedex">Pokedex</string>
     <string name="register">Register</string>
     <string name="user_photo">User Photo</string>
+    <string name="REGISTER">REGISTER</string>
+    <string name="LOGIN">LOGIN</string>
+    <string name="logo_ufms">Logo Universidade Federal do Mato Grosso do Sul</string>
+    <string name="favorite_button">Favorite Button</string>
+    <string name="error_empy_field">This field can\'t be empty</string>
+    <string name="register_succesfully">" Successfully registered!"</string>
+    <string name="photo_succesfully">"Photo obtained successfully "</string>
 </resources>

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="dev.progMob.pokeapiandroidtask.fragments.LoginFragment">
 
@@ -17,14 +15,15 @@
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:background="@drawable/linear_layout_with_corners">
+                android:background="@drawable/linear_layout_with_corners_white">
 
                 <ImageButton
                     android:id="@+id/btnLogo"
                     android:layout_width="120dp"
                     android:layout_height="160dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/ufms_logo_negativo_sem_caixa_rgb" />
+                    android:background="@drawable/ufms_logo_negativo_sem_caixa_rgb"
+                    android:contentDescription="@string/logo_ufms" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -41,6 +40,7 @@
                     android:gravity="center"
                     android:fontFamily="@font/futurxkc"
                     android:textColor="@color/ufms_font"
+                    android:layout_margin="8dp"
                     android:textSize="30sp"/>
 
                 <!--Username-->
@@ -73,6 +73,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
+                    app:endIconMode="password_toggle"
                     android:background="@color/white"
                     app:startIconDrawable="@drawable/ic_password">
 
@@ -83,24 +84,23 @@
                         android:layout_margin="5dp"
                         android:fitsSystemWindows="true"
                         android:hint="@string/password"
-                        android:inputType="text"
+                        android:inputType="textPassword"
                         android:textColorHint="@color/black"
                         app:strokeWidth="4dp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnUserPhoto"
-                    android:layout_width="fill_parent"
+                    android:id="@+id/btnLogin"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="15dp"
-                    android:paddingStart="12dp"
-                    android:text="@string/user_photo"
-                    android:drawablePadding="18dp"
-                    android:textColor="@color/gray"
-                    android:gravity="fill_vertical"
-                    android:background="@drawable/outline"
-                    android:drawableLeft="@drawable/ic_baseline_camera_alt_24" />
+                    android:textAppearance="?attr/textAppearanceListItem"
+                    android:textColor="@color/white"
+                    android:background="@drawable/linear_layout_with_corners_ufms_color"
+                    android:text="@string/LOGIN"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_gravity="center"/>
 
                 <Button
                     android:id="@+id/btnRegister"

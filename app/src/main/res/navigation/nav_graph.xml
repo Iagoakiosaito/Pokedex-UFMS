@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tool="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/pokemonListFragment">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/pokemonListFragment"
@@ -39,4 +39,20 @@
             app:argType="string"
             app:nullable="true" />
     </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="dev.progMob.pokeapiandroidtask.fragments.LoginFragment"
+        android:label="login_fragment"
+        tool:layout="@layout/login_fragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_pokemonListFragment"
+            app:destination="@id/pokemonListFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="dev.progMob.pokeapiandroidtask.fragments.RegisterFragment"
+        android:label="RegisterFragment" />
 </navigation>
