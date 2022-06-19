@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="dev.progMob.pokeapiandroidtask.fragments.LoginFragment">
+    tools:context=".fragments.LoginFragment">
 
         <!--LinearLayout for information fields-->
         <androidx.constraintlayout.widget.ConstraintLayout

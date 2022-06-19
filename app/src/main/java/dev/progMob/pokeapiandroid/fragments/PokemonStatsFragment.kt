@@ -1,9 +1,9 @@
-package dev.progMob.pokeapiandroidtask.fragments
+package dev.progMob.pokeapiandroid.fragments
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -32,7 +32,8 @@ class PokemonStatsFragment : Fragment(R.layout.fragment_pokemon_stats) {
     private lateinit var binding: FragmentPokemonStatsBinding
     private val adapter = StatsAdapter()
     private val args = PokemonStatsFragmentArgs
-    private val viewModel: PokemonStatsViewModel by viewModels()
+    private val _viewModel: PokemonStatsViewModel by viewModels()
+    private lateinit var toolbar: androidx.appcompat.widget.Toolbar
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -42,6 +43,8 @@ class PokemonStatsFragment : Fragment(R.layout.fragment_pokemon_stats) {
         val pokemonResult = argument?.pokemonResult
         val dominantColor = argument?.dominantColor
         val picture = argument?.picture
+        toolbar = activity!!.findViewById(R.id.main_toolbar)
+        toolbar.setBackgroundColor(argument?.dominantColor!!)
 
         //setting the colors based on dominant colors
         if (dominantColor != 0) {
@@ -51,6 +54,8 @@ class PokemonStatsFragment : Fragment(R.layout.fragment_pokemon_stats) {
                 requireActivity().window.statusBarColor = theColor
             }
         }
+
+        setupUI()
 
         val toolbar = binding.toolbar
         toolbar.elevation = 0.0F
@@ -75,13 +80,24 @@ class PokemonStatsFragment : Fragment(R.layout.fragment_pokemon_stats) {
 
     }
 
+    private fun setupUI() {
+
+        //favorite button selected
+        binding.favoriteButton.setOnCheckedChangeListener { _, isChecked ->
+            if(isChecked){
+                _viewModel.addFavorite()
+            } else {
+//                binding.favoriteButton.setImageResource(R.drawable.ic_favorited)
+            }
+        }
+    }
 
     private fun loadSinglePokemon(pokemonResult: PokemonResult) {
 
         lifecycleScope.launch(Dispatchers.Main) {
             //a bit delay for the animation to finish
             delay(300)
-            viewModel.getSinglePokemon(pokemonResult.url).collect {
+            _viewModel.getSinglePokemon(pokemonResult.url).collect {
                 when (it) {
                     is NetworkResource.Success -> {
                         binding.progressCircular.isVisible = false

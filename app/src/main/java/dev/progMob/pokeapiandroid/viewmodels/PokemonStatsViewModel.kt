@@ -18,4 +18,8 @@ class PokemonStatsViewModel @Inject constructor(private val pokemonRepository: P
         emit(pokemonRepository.getSinglePokemon(id))
     }
 
+    fun addFavorite() {
+        TODO("Not yet implemented")
+    }
+
 }

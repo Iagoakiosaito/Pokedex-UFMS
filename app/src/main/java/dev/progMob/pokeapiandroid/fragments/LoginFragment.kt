@@ -1,17 +1,20 @@
-package dev.progMob.pokeapiandroidtask.fragments
+package dev.progMob.pokeapiandroid.fragments
 
 import android.graphics.Paint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
-import dev.progMob.pokeapiandroidtask.utils.decrypt
+import dev.progMob.pokeapiandroid.R
 import dev.progMob.pokeapiandroid.databinding.LoginFragmentBinding
-import dev.progMob.pokeapiandroidtask.viewmodels.LoginViewModel
-import dev.progMob.pokeapiandroidtask.utils.encrypt
+import dev.progMob.pokeapiandroid.model.UserGlobal
+import dev.progMob.pokeapiandroid.viewmodels.LoginViewModel
 
 @AndroidEntryPoint
 class LoginFragment : Fragment() {
@@ -19,12 +22,12 @@ class LoginFragment : Fragment() {
     private var _binding: LoginFragmentBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var viewModel: LoginViewModel
+    private val _viewModel: LoginViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = LoginFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -33,14 +36,18 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.btnRegister.paintFlags = Paint.UNDERLINE_TEXT_FLAG
         setupUI()
+        subscribeUI()
     }
 
     private fun setupUI() {
-        binding.btnLogin.setOnClickListener {
-            val teste = encrypt(requireContext(), binding.edtUsernameLogin.text.toString())
-            val a = teste.toString()
 
-            decrypt(requireContext(), a.toByteArray())
+
+        binding.btnLogin.setOnClickListener {
+            _viewModel.login(
+                username = binding.edtUsernameLogin.text.toString(),
+                password = binding.edtPasswordLogin.text.toString(),
+                context = requireContext()
+            )
         }
         binding.btnRegister.setOnClickListener{
             val navController = findNavController()
@@ -49,4 +56,29 @@ class LoginFragment : Fragment() {
         }
     }
 
+    private fun subscribeUI() {
+        _viewModel.messageLogin.observe(viewLifecycleOwner) {
+            when(it){
+                R.string.LOGIN_OK -> {
+                    navigateToPokemonListFragment()
+                }
+                R.string.LOGIN_FAIL -> {
+                    Toast.makeText(requireContext(), R.string.fail_to_login, Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
+    private fun navigateToPokemonListFragment() {
+        UserGlobal._photo = _viewModel.userResult.value!!.photo
+        UserGlobal._name = _viewModel.userResult.value!!.name
+        UserGlobal.favoritePokemons = _viewModel.userResult.value!!.favoritePokemons.toMutableList()
+
+        val navController = findNavController()
+        navController.popBackStack()
+        navController.navigate(R.id.pokemonListFragment)
+    }
+
 }
+
+

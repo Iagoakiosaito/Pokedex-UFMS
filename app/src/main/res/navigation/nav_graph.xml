@@ -17,11 +17,11 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
-
     </fragment>
+
     <fragment
         android:id="@+id/pokemonStatsFragment"
-        android:name="dev.progMob.pokeapiandroidtask.fragments.PokemonStatsFragment"
+        android:name="dev.progMob.pokeapiandroid.fragments.PokemonStatsFragment"
         android:label="PokemonStatsFragment"
         tool:layout="@layout/fragment_pokemon_stats">
 
@@ -41,7 +41,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="dev.progMob.pokeapiandroidtask.fragments.LoginFragment"
+        android:name="dev.progMob.pokeapiandroid.fragments.LoginFragment"
         android:label="login_fragment"
         tool:layout="@layout/login_fragment" >
         <action
@@ -51,8 +51,10 @@
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/registerFragment"
         android:name="dev.progMob.pokeapiandroidtask.fragments.RegisterFragment"
         android:label="RegisterFragment" />
+
 </navigation>

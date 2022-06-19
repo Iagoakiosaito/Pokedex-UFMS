@@ -5,7 +5,7 @@ import dev.progMob.pokeapiandroidtask.model.PokemonResult
 data class RegistrationParams (
 
     var username: String = "",
-    var password: ByteArray = byteArrayOf(),
+    var password: String = "",
     var userPhoto: ByteArray = byteArrayOf()
 ) {
     override fun equals(other: Any?): Boolean {
@@ -15,14 +15,17 @@ data class RegistrationParams (
         other as RegistrationParams
 
         if (username != other.username) return false
-        if (!password.contentEquals(other.password)) return false
+        if (password != other.password) return false
+        if (!userPhoto.contentEquals(other.userPhoto)) return false
 
         return true
     }
 
     override fun hashCode(): Int {
         var result = username.hashCode()
-        result = 31 * result + password.contentHashCode()
+        result = 31 * result + password.hashCode()
+        result = 31 * result + userPhoto.contentHashCode()
         return result
     }
+
 }

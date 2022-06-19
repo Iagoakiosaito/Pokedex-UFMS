@@ -19,6 +19,6 @@ interface UserDao {
 //    @Query("SELECT user_favorite_pokemons FROM user WHERE user.user_id = :userId")
 //    fun getFavoritePokemonsFromCertainUser(userId: Long): List<PokemonResult>
 
-    @Query("SELECT user_id FROM user WHERE user_name = :username AND user_password = :password")
-    fun login(username: String, password: String): Long
+    @Query("SELECT * FROM user WHERE user_name = :username AND user_password = :password")
+    fun login(username: String, password: String): UserEntity
 }

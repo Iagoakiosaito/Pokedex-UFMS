@@ -16,8 +16,8 @@ data class UserEntity(
     @ColumnInfo(name = "user_name")
     val name: String,
 
-    @ColumnInfo(name = "user_password", typeAffinity = ColumnInfo.BLOB)
-    val hashedPassword: ByteArray,
+    @ColumnInfo(name = "user_password")
+    val hashedPassword: String,
 
     @ColumnInfo(name = "user_favorite_pokemons")
     val favoritePokemons: List<PokemonResult>,
@@ -34,8 +34,9 @@ data class UserEntity(
 
         if (id != other.id) return false
         if (name != other.name) return false
-        if (!hashedPassword.contentEquals(other.hashedPassword)) return false
+        if (hashedPassword != other.hashedPassword) return false
         if (favoritePokemons != other.favoritePokemons) return false
+        if (!userImage.contentEquals(other.userImage)) return false
 
         return true
     }
@@ -43,10 +44,12 @@ data class UserEntity(
     override fun hashCode(): Int {
         var result = id.hashCode()
         result = 31 * result + name.hashCode()
-        result = 31 * result + hashedPassword.contentHashCode()
+        result = 31 * result + hashedPassword.hashCode()
         result = 31 * result + favoritePokemons.hashCode()
+        result = 31 * result + userImage.contentHashCode()
         return result
     }
+
 }
 
 fun RegistrationParams.toUserEntity(): UserEntity {

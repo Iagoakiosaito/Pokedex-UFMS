@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputLayout
@@ -29,7 +30,7 @@ class RegisterFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var userImageByteArray: ByteArray
-    private lateinit var _viewModel: RegisterViewModel
+    private val _viewModel: RegisterViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -57,7 +58,6 @@ class RegisterFragment : Fragment() {
     }
 
     private fun setupUI() {
-        _viewModel = ViewModelProvider(this).get(RegisterViewModel::class.java)
 
         binding.btnRegister.setOnClickListener {
             if(_viewModel.verifyUsernameAndPassword(
@@ -73,7 +73,6 @@ class RegisterFragment : Fragment() {
                 Toast.makeText(requireContext(), R.string.register_succesfully, Toast.LENGTH_SHORT).show()
                 findNavController().navigateUp()
             }
-            Toast.makeText(requireContext(), "Aq", Toast.LENGTH_SHORT).show()
         }
 
         val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->

@@ -4,11 +4,10 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.progMob.pokeapiandroid.R
 import dev.progMob.pokeapiandroidtask.database.repository.RegistrationParams
-import dev.progMob.pokeapiandroidtask.database.repository.UserRepository
+import dev.progMob.pokeapiandroid.database.repository.UserRepository
 import dev.progMob.pokeapiandroidtask.utils.encrypt
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -18,8 +17,7 @@ import javax.inject.Inject
 @HiltViewModel
 class RegisterViewModel @Inject constructor(
     private val userRepository: UserRepository
-    )
-:ViewModel() {
+    ):ViewModel() {
 
     val passwordError: LiveData<Int> get() = _usernameError
     private val _passwordError by lazy { MutableLiveData<Int>() }
@@ -32,7 +30,7 @@ class RegisterViewModel @Inject constructor(
 
             val registrationParams = RegistrationParams(
                 username = username,
-                password = encrypt(context = context, password),
+                password = encrypt(password)!!,
                 userPhoto = userphoto
             )
             userRepository.createUser(registrationParams)

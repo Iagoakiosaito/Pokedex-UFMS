@@ -84,20 +84,24 @@
                         app:layout_constraintVertical_bias="0.0"
                         tools:text="charmander" />
 
-                    <ImageButton
+                    <ToggleButton
                         android:id="@+id/favoriteButton"
                         style="?attr/borderlessButtonStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginStart="16dp"
                         android:layout_marginBottom="4dp"
-                        android:background="@null"
+                        android:gravity="center"
+                        android:textOff=""
+                        android:textOn=""
+                        android:textSize="0sp"
+                        android:paddingBottom="10dp"
+                        android:drawableBottom="@animator/favorite_toggle_drawable"
                         android:contentDescription="@string/favorite_button"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="1.0"
-                        app:layout_constraintStart_toEndOf="@+id/pokemon_item_weight"
-                        app:srcCompat="@drawable/ic_favorite_outline" />
+                        app:layout_constraintStart_toEndOf="@+id/pokemon_item_weight"/>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

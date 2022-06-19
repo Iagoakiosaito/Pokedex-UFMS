@@ -2,6 +2,8 @@ package dev.progMob.pokeapiandroidtask.fragments
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
@@ -36,6 +38,7 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+
 @AndroidEntryPoint
 @SuppressLint("ClickableViewAccessibility")
 class PokemonListFragment : Fragment(R.layout.fragment_pokemon_list) {
@@ -45,6 +48,8 @@ class PokemonListFragment : Fragment(R.layout.fragment_pokemon_list) {
     private val viewModel: PokemonListViewModel by viewModels()
     private var job: Job? = null
     private var hasUserSearched = false
+    private lateinit var toolbar: androidx.appcompat.widget.Toolbar
+
 
     @Inject
     lateinit var thankYouDialog: ThankYouDialog
@@ -61,14 +66,16 @@ class PokemonListFragment : Fragment(R.layout.fragment_pokemon_list) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding = FragmentPokemonListBinding.bind(view)
-
         setAdapter()
         checkDialog()
         setRefresh()
         setSearchView()
+        setupUI()
 
+    }
+
+    private fun setupUI() {
         binding.scrollUp.setOnClickListener {
             lifecycleScope.launch {
                 binding.pokemonList.scrollToPosition(0)
@@ -76,7 +83,6 @@ class PokemonListFragment : Fragment(R.layout.fragment_pokemon_list) {
                 binding.scrollUp.toggle(false)
             }
         }
-
     }
 
     private fun setRefresh() {
@@ -249,6 +255,7 @@ class PokemonListFragment : Fragment(R.layout.fragment_pokemon_list) {
         //setting the status bar color back
         requireActivity().window.statusBarColor =
             ContextCompat.getColor(requireContext(), R.color.green)
+
     }
 
     private fun retry() {

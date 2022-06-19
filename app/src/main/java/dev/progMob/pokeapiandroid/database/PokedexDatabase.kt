@@ -2,7 +2,7 @@ package dev.progMob.pokeapiandroidtask.database
 
 import android.content.Context
 import androidx.room.*
-import dev.progMob.pokeapiandroidtask.database.converter.Converters
+import dev.progMob.pokeapiandroid.database.converter.Converters
 import dev.progMob.pokeapiandroidtask.database.dao.UserDao
 import dev.progMob.pokeapiandroidtask.database.entity.UserEntity
 

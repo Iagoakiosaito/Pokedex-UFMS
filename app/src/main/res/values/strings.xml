@@ -22,4 +22,10 @@
     <string name="error_empy_field">This field can\'t be empty</string>
     <string name="register_succesfully">" Successfully registered!"</string>
     <string name="photo_succesfully">"Photo obtained successfully "</string>
+    <string name="LOGIN_OK">LOGIN_OK</string>
+    <string name="LOGIN_FAIL">LOGIN_FAIL</string>
+    <string name="fail_to_login">Your username or password is incorrect, try again</string>
+    <string name="to_user_profile">To user profile</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 </resources>
