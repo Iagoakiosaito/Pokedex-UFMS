@@ -50,23 +50,23 @@ class PokemonStatsFragment : Fragment(R.layout.fragment_pokemon_stats) {
         if (dominantColor != 0) {
             dominantColor?.let { theColor ->
                 binding.card.setBackgroundColor(theColor)
-                binding.toolbar.setBackgroundColor(theColor)
+//                binding.toolbar.setBackgroundColor(theColor)
                 requireActivity().window.statusBarColor = theColor
             }
         }
 
         setupUI()
 
-        val toolbar = binding.toolbar
-        toolbar.elevation = 0.0F
-        (activity as AppCompatActivity).setSupportActionBar(toolbar)
-        (activity as AppCompatActivity).supportActionBar!!.title = pokemonResult?.name?.capitalize()
-        (activity as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        (activity as AppCompatActivity).supportActionBar!!.setHomeButtonEnabled(true)
-
-        toolbar.setNavigationOnClickListener {
-            binding.root.findNavController().navigateUp()
-        }
+//        val toolbar = binding.toolbar
+//        toolbar.elevation = 0.0F
+//        (activity as AppCompatActivity).setSupportActionBar(toolbar)
+//        (activity as AppCompatActivity).supportActionBar!!.title = pokemonResult?.name?.capitalize()
+//        (activity as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+//        (activity as AppCompatActivity).supportActionBar!!.setHomeButtonEnabled(true)
+//
+//        toolbar.setNavigationOnClickListener {
+//            binding.root.findNavController().navigateUp()
+//        }
 
         //load pic
         binding.apply {

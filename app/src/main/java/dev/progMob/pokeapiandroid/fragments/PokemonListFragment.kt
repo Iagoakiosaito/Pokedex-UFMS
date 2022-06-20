@@ -1,14 +1,13 @@
-package dev.progMob.pokeapiandroidtask.fragments
+package dev.progMob.pokeapiandroid.fragments
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
@@ -26,6 +25,7 @@ import dev.progMob.pokeapiandroid.R
 import dev.progMob.pokeapiandroid.databinding.FragmentPokemonListBinding
 import dev.progMob.pokeapiandroidtask.adapters.LoadingStateAdapter
 import dev.progMob.pokeapiandroidtask.adapters.PokemonAdapter
+import dev.progMob.pokeapiandroidtask.fragments.ThankYouDialog
 import dev.progMob.pokeapiandroidtask.model.PokemonResult
 import dev.progMob.pokeapiandroidtask.utils.PRODUCT_VIEW_TYPE
 import dev.progMob.pokeapiandroidtask.utils.toast
@@ -48,7 +48,6 @@ class PokemonListFragment : Fragment(R.layout.fragment_pokemon_list) {
     private val viewModel: PokemonListViewModel by viewModels()
     private var job: Job? = null
     private var hasUserSearched = false
-    private lateinit var toolbar: androidx.appcompat.widget.Toolbar
 
 
     @Inject
@@ -67,6 +66,9 @@ class PokemonListFragment : Fragment(R.layout.fragment_pokemon_list) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentPokemonListBinding.bind(view)
+        val supportActionBar = (activity as AppCompatActivity?)!!.supportActionBar
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         setAdapter()
         checkDialog()
         setRefresh()

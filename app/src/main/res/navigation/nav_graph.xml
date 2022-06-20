@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/pokemonListFragment"
-        android:name="dev.progMob.pokeapiandroidtask.fragments.PokemonListFragment"
+        android:name="dev.progMob.pokeapiandroid.fragments.PokemonListFragment"
         android:label="PokemonListFragment"
         tool:layout="@layout/fragment_pokemon_list">
         <action
