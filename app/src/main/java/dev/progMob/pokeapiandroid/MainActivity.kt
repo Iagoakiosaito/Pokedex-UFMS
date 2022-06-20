@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.mainToolbar)
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host) as NavHostFragment
         val navController = navHostFragment.navController
-        removeFloatingMenuCertainFragments(navController)
+        removeToolbarFromCertainFragments(navController)
         setupSideNavigationMenu(navController)
         setupActionBar(navController)
         if (!checkPermission()) {
@@ -50,12 +50,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun removeFloatingMenuCertainFragments(navController: NavController) {
+    private fun removeToolbarFromCertainFragments(navController: NavController) {
         navController.addOnDestinationChangedListener { _: NavController, navDestination: NavDestination, _: Bundle? ->
             if (navDestination.id == R.id.loginFragment || navDestination.id == R.id.registerFragment) {
                 binding.mainToolbar.visibility = View.INVISIBLE
             } else {
                 binding.mainToolbar.visibility = View.VISIBLE
+            }
+            if(navDestination.id == R.id.pokemonListFragment) {
+                binding.mainToolbar.setBackgroundResource(R.color.green)
             }
         }
     }
