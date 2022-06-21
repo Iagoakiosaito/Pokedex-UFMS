@@ -2,29 +2,28 @@ package dev.progMob.pokeapiandroid
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
-import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import dagger.hilt.android.AndroidEntryPoint
 import dev.progMob.pokeapiandroid.databinding.ActivityMainBinding
+import dev.progMob.pokeapiandroid.model.UserGlobal
 
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var toggle: ActionBarDrawerToggle
     private val permissionRequestCode = 200
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,40 +37,19 @@ class MainActivity : AppCompatActivity() {
         removeToolbarFromCertainFragments(navController)
         setupSideNavigationMenu(navController)
         setupActionBar(navController)
-        if (!checkPermission()) {
-            requestPermission()
-        }
+        profileClickListener()
+        requestPermission()
+
         binding.mainToolbar.setNavigationOnClickListener {
             navController.navigateUp()
         }
-        toggle = ActionBarDrawerToggle(this, binding.drawerLayout, R.string.open, R.string.close)
-        binding.drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()
-
-
-        binding.navView.setNavigationItemSelectedListener {
-            when(it.itemId) {
-
-                R.id.menu_profile -> {
-                    Toast.makeText(applicationContext, "Home", Toast.LENGTH_SHORT).show()
-                }
-                R.id.menu_logout -> {
-                    Toast.makeText(applicationContext, "Logout", Toast.LENGTH_SHORT).show()
-                }
-            }
-
-            true
-        }
 
     }
 
-    private fun setupActionBar(navController: NavController) {
-        NavigationUI.setupActionBarWithNavController(this, navController, binding.drawerLayout)
-    }
-
-    private fun setupSideNavigationMenu(navController: NavController) {
-        binding.navView.let {
-            NavigationUI.setupWithNavController(it, navController)
+    private fun profileClickListener() {
+        binding.btnProfile.setOnClickListener{
+            val navController = Navigation.findNavController(this, R.id.nav_host)
+            navController.navigate(R.id.profileFragment)
         }
     }
 
@@ -83,10 +61,27 @@ class MainActivity : AppCompatActivity() {
                 binding.mainToolbar.visibility = View.VISIBLE
             }
             if(navDestination.id == R.id.pokemonListFragment) {
+                binding.btnLogout.visibility = View.INVISIBLE
+                binding.btnProfile.visibility = View.VISIBLE
                 binding.mainToolbar.setBackgroundResource(R.color.green)
-                supportActionBar?.setDisplayHomeAsUpEnabled(true)
+                val bmp = BitmapFactory.decodeByteArray(UserGlobal._photo, 0, UserGlobal._photo.size)
+                binding.btnProfile.setImageBitmap(bmp)
+            } else if (navDestination.id == R.id.profileFragment){
+                binding.btnLogout.isVisible = true
+                binding.btnProfile.visibility = View.INVISIBLE
+                binding.mainToolbar.title = ""
             }
         }
+    }
+
+    private fun setupSideNavigationMenu(navController: NavController) {
+        binding.navView.let {
+            NavigationUI.setupWithNavController(it, navController)
+        }
+    }
+
+    private fun setupActionBar(navController: NavController) {
+        NavigationUI.setupActionBarWithNavController(this, navController, binding.drawerLayout)
     }
 
     private fun checkPermission(): Boolean {
@@ -100,9 +95,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun requestPermission() {
-        ActivityCompat.requestPermissions(
-            this, arrayOf(Manifest.permission.CAMERA),
-            permissionRequestCode
-        )
+        if(!checkPermission()){
+            ActivityCompat.requestPermissions(
+                this, arrayOf(Manifest.permission.CAMERA),
+                permissionRequestCode
+            )
+        }
     }
 }

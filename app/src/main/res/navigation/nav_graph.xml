@@ -56,5 +56,10 @@
         android:id="@+id/registerFragment"
         android:name="dev.progMob.pokeapiandroidtask.fragments.RegisterFragment"
         android:label="RegisterFragment" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="dev.progMob.pokeapiandroid.fragments.ProfileFragment"
+        android:label="fragment_profile"
+        tool:layout="@layout/fragment_profile" />
 
 </navigation>

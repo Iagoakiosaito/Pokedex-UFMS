@@ -46,4 +46,8 @@
         <item name="colorOnPrimary">@color/white</item>
     </style>
 
+    <style name="ToolBarTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name= "icon">@color/white</item>
+    </style>
+
 </resources>

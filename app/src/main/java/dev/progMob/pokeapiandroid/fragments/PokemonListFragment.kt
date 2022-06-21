@@ -66,8 +66,10 @@ class PokemonListFragment : Fragment(R.layout.fragment_pokemon_list) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentPokemonListBinding.bind(view)
-        val supportActionBar = (activity as AppCompatActivity?)!!.supportActionBar
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        val supportActionBar = (activity as AppCompatActivity).supportActionBar
+        supportActionBar?.title = ""
+        supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        supportActionBar?.setHomeButtonEnabled(false)
 
         setAdapter()
         checkDialog()

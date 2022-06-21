@@ -57,16 +57,8 @@ class PokemonStatsFragment : Fragment(R.layout.fragment_pokemon_stats) {
 
         setupUI()
 
-//        val toolbar = binding.toolbar
-//        toolbar.elevation = 0.0F
-//        (activity as AppCompatActivity).setSupportActionBar(toolbar)
-//        (activity as AppCompatActivity).supportActionBar!!.title = pokemonResult?.name?.capitalize()
-//        (activity as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-//        (activity as AppCompatActivity).supportActionBar!!.setHomeButtonEnabled(true)
-//
-//        toolbar.setNavigationOnClickListener {
-//            binding.root.findNavController().navigateUp()
-//        }
+        (activity as AppCompatActivity).supportActionBar!!.title = pokemonResult?.name?.capitalize()
+
 
         //load pic
         binding.apply {

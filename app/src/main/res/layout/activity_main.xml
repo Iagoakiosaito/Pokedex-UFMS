@@ -16,25 +16,52 @@
                 android:id="@+id/main_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:theme="@style/Theme.AppCompat.NoActionBar"
+                android:theme="@style/ToolBarTheme"
                 android:background="@color/green">
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="start">
-                    <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_gravity="start"
-                        android:src="@drawable/ufms_logo_negativo_sem_caixa_rgb"/>
-                </LinearLayout>
+                    android:layout_height="match_parent">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/btnProfile"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_gravity="end"
+                        android:layout_marginStart="331dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="24dp"
+                        android:src="@drawable/ic_user"
+                        app:civ_border_color="@color/white"
+                        app:civ_border_width="2dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/btnLogout"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_gravity="end"
+                        android:layout_marginStart="331dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="24dp"
+                        android:visibility="invisible"
+                        android:src="@drawable/ic_exit_to_app"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
             </androidx.appcompat.widget.Toolbar>
 
 
-            <androidx.fragment.app.FragmentContainerView
+            <fragment
                 android:id="@+id/nav_host"
                 android:name="androidx.navigation.fragment.NavHostFragment"
                 android:layout_width="match_parent"
@@ -52,8 +79,7 @@
             android:layout_gravity="start"
             android:paddingTop="16dp"
             app:headerLayout="@layout/navigation_header"
-            app:menu="@menu/navigation_menu"
-            />
+            app:menu="@menu/navigation_menu"/>
 
 
 
