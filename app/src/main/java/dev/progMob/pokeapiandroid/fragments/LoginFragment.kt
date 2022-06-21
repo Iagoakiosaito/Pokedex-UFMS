@@ -82,6 +82,7 @@ class LoginFragment : Fragment() {
         UserGlobal._photo = _viewModel.userResult.value!!.photo
         UserGlobal._name = _viewModel.userResult.value!!.name
         UserGlobal.favoritePokemons = _viewModel.userResult.value!!.favoritePokemons.toMutableList()
+        UserGlobal._id = _viewModel.userResult.value!!.id
 
         val navController = findNavController()
         navController.popBackStack()

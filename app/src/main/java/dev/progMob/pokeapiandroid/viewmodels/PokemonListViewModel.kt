@@ -1,4 +1,4 @@
-package dev.progMob.pokeapiandroidtask.viewmodels
+package dev.progMob.pokeapiandroid.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

@@ -2,24 +2,25 @@ package dev.progMob.pokeapiandroid.fragments
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.findNavController
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import dagger.hilt.android.AndroidEntryPoint
 import dev.progMob.pokeapiandroid.R
+import dev.progMob.pokeapiandroid.database.model.FavoritePokemon
 import dev.progMob.pokeapiandroid.databinding.FragmentPokemonStatsBinding
+import dev.progMob.pokeapiandroid.model.UserGlobal
 import dev.progMob.pokeapiandroidtask.adapters.StatsAdapter
 import dev.progMob.pokeapiandroidtask.model.PokemonResult
 import dev.progMob.pokeapiandroidtask.model.Stats
 import dev.progMob.pokeapiandroidtask.utils.NetworkResource
 import dev.progMob.pokeapiandroidtask.utils.toast
-import dev.progMob.pokeapiandroidtask.viewmodels.PokemonStatsViewModel
+import dev.progMob.pokeapiandroid.viewmodels.PokemonStatsViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
@@ -45,6 +46,9 @@ class PokemonStatsFragment : Fragment(R.layout.fragment_pokemon_stats) {
         val picture = argument?.picture
         toolbar = activity!!.findViewById(R.id.main_toolbar)
         toolbar.setBackgroundColor(argument?.dominantColor!!)
+        if(UserGlobal.favoritePokemons?.contains(argument?.pokemonResult) == true){
+            binding.favoriteButton.isChecked = true
+        }
 
         //setting the colors based on dominant colors
         if (dominantColor != 0) {
@@ -56,8 +60,9 @@ class PokemonStatsFragment : Fragment(R.layout.fragment_pokemon_stats) {
         }
 
         setupUI()
-
-        (activity as AppCompatActivity).supportActionBar!!.title = pokemonResult?.name?.capitalize()
+//        (activity as AppCompatActivity).supportActionBar!!.title = pokemonResult?.name?.capitalize()
+        val toolbar = activity?.findViewById<Toolbar>(R.id.main_toolbar)
+        toolbar?.title = pokemonResult?.name?.capitalize()
 
 
         //load pic
@@ -76,10 +81,16 @@ class PokemonStatsFragment : Fragment(R.layout.fragment_pokemon_stats) {
 
         //favorite button selected
         binding.favoriteButton.setOnCheckedChangeListener { _, isChecked ->
+            val argument = arguments?.let { args.fromBundle(it) }
+            val favoritePokemon = FavoritePokemon(
+                pokemonResult = argument?.pokemonResult!!,
+                dominant_color = argument?.dominantColor,
+                picture = argument?.picture
+            )
             if(isChecked){
-                _viewModel.addFavorite()
+                _viewModel.addFavorite(favoritePokemon)
             } else {
-//                binding.favoriteButton.setImageResource(R.drawable.ic_favorited)
+                _viewModel.removeFavorite(favoritePokemon)
             }
         }
     }
@@ -97,7 +108,7 @@ class PokemonStatsFragment : Fragment(R.layout.fragment_pokemon_stats) {
                             (it.value.weight.div(10.0).toString() + " kgs").also { weight ->
                                 pokemonItemWeight.text = weight
                             }
-                            (it.value.height.div(10.0).toString() + " metros").also { height ->
+                            (it.value.height.div(10.0).toString() + " meters").also { height ->
                                 pokemonItemHeight.text = height
                             }
                             pokemonStatList.adapter = adapter
@@ -106,7 +117,7 @@ class PokemonStatsFragment : Fragment(R.layout.fragment_pokemon_stats) {
                     }
                     is NetworkResource.Failure -> {
                         binding.progressCircular.isVisible = false
-                        requireContext().toast("Aconteceu um erro durante o carregamento do Pokémon")
+                        requireContext().toast("There was an error loading the pokemon")
                     }
                     is NetworkResource.Loading -> {
                         binding.progressCircular.isVisible = true

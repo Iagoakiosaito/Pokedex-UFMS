@@ -60,6 +60,10 @@
         android:id="@+id/profileFragment"
         android:name="dev.progMob.pokeapiandroid.fragments.ProfileFragment"
         android:label="fragment_profile"
-        tool:layout="@layout/fragment_profile" />
+        tool:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_pokemonStatsFragment"
+            app:destination="@id/pokemonStatsFragment" />
+    </fragment>
 
 </navigation>

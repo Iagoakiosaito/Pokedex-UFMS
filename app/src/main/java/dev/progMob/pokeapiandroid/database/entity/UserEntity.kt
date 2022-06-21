@@ -3,6 +3,7 @@ package dev.progMob.pokeapiandroidtask.database.entity
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import dev.progMob.pokeapiandroid.database.model.FavoritePokemon
 import dev.progMob.pokeapiandroidtask.database.model.User
 import dev.progMob.pokeapiandroidtask.database.repository.RegistrationParams
 import dev.progMob.pokeapiandroidtask.model.PokemonResult
@@ -20,12 +21,12 @@ data class UserEntity(
     val hashedPassword: String,
 
     @ColumnInfo(name = "user_favorite_pokemons")
-    val favoritePokemons: List<PokemonResult>,
+    val favoritePokemons: List<FavoritePokemon>,
 
     @ColumnInfo(name = "user_photo", typeAffinity = ColumnInfo.BLOB)
     val userImage: ByteArray,
 
-) {
+    ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
@@ -65,7 +66,7 @@ fun RegistrationParams.toUserEntity(): UserEntity {
 
 fun UserEntity.toUser(): User {
     return User(
-        id = this.id.toString(),
+        id = this.id,
         name = this.name,
         favoritePokemons = this.favoritePokemons,
         photo = this.userImage

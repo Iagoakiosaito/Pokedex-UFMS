@@ -1,4 +1,4 @@
-package dev.progMob.pokeapiandroidtask.adapters
+package dev.progMob.pokeapiandroid.adapters
 
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable

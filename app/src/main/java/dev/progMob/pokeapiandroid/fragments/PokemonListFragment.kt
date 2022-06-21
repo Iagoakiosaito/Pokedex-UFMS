@@ -24,13 +24,13 @@ import dagger.hilt.android.AndroidEntryPoint
 import dev.progMob.pokeapiandroid.R
 import dev.progMob.pokeapiandroid.databinding.FragmentPokemonListBinding
 import dev.progMob.pokeapiandroidtask.adapters.LoadingStateAdapter
-import dev.progMob.pokeapiandroidtask.adapters.PokemonAdapter
+import dev.progMob.pokeapiandroid.adapters.PokemonAdapter
 import dev.progMob.pokeapiandroidtask.fragments.ThankYouDialog
 import dev.progMob.pokeapiandroidtask.model.PokemonResult
 import dev.progMob.pokeapiandroidtask.utils.PRODUCT_VIEW_TYPE
 import dev.progMob.pokeapiandroidtask.utils.toast
 import dev.progMob.pokeapiandroidtask.utils.toggle
-import dev.progMob.pokeapiandroidtask.viewmodels.PokemonListViewModel
+import dev.progMob.pokeapiandroid.viewmodels.PokemonListViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect

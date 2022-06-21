@@ -61,13 +61,11 @@ class MainActivity : AppCompatActivity() {
                 binding.mainToolbar.visibility = View.VISIBLE
             }
             if(navDestination.id == R.id.pokemonListFragment) {
-                binding.btnLogout.visibility = View.INVISIBLE
                 binding.btnProfile.visibility = View.VISIBLE
                 binding.mainToolbar.setBackgroundResource(R.color.green)
                 val bmp = BitmapFactory.decodeByteArray(UserGlobal._photo, 0, UserGlobal._photo.size)
                 binding.btnProfile.setImageBitmap(bmp)
             } else if (navDestination.id == R.id.profileFragment){
-                binding.btnLogout.isVisible = true
                 binding.btnProfile.visibility = View.INVISIBLE
                 binding.mainToolbar.title = ""
             }

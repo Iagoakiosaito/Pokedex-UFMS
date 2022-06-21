@@ -1,6 +1,6 @@
 package dev.progMob.pokeapiandroidtask.api
 
-import dev.progMob.pokeapiandroidtask.model.PokemonResponse
+import dev.progMob.pokeapiandroid.model.PokemonResponse
 import dev.progMob.pokeapiandroidtask.model.SinglePokemonResponse
 import retrofit2.http.GET
 import retrofit2.http.Path

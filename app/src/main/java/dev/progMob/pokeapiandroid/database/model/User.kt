@@ -1,11 +1,12 @@
 package dev.progMob.pokeapiandroidtask.database.model
 
+import dev.progMob.pokeapiandroid.database.model.FavoritePokemon
 import dev.progMob.pokeapiandroidtask.model.PokemonResult
 
 data class User (
-    val id: String,
+    val id: Long,
     val name: String,
-    val favoritePokemons: List<PokemonResult>,
+    val favoritePokemons: List<FavoritePokemon>,
     val photo: ByteArray
 ) {
     override fun equals(other: Any?): Boolean {
