@@ -1,7 +1,4 @@
-package dev.progMob.pokeapiandroidtask.database.model
-
-import dev.progMob.pokeapiandroid.database.model.FavoritePokemon
-import dev.progMob.pokeapiandroidtask.model.PokemonResult
+package dev.progMob.pokeapiandroid.database.model
 
 data class User (
     val id: Long,

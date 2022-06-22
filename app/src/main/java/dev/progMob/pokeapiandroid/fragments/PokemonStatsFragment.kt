@@ -2,6 +2,7 @@ package dev.progMob.pokeapiandroid.fragments
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.isVisible
@@ -34,7 +35,7 @@ class PokemonStatsFragment : Fragment(R.layout.fragment_pokemon_stats) {
     private val adapter = StatsAdapter()
     private val args = PokemonStatsFragmentArgs
     private val _viewModel: PokemonStatsViewModel by viewModels()
-    private lateinit var toolbar: androidx.appcompat.widget.Toolbar
+    private lateinit var toolbar: Toolbar
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -46,7 +47,12 @@ class PokemonStatsFragment : Fragment(R.layout.fragment_pokemon_stats) {
         val picture = argument?.picture
         toolbar = activity!!.findViewById(R.id.main_toolbar)
         toolbar.setBackgroundColor(argument?.dominantColor!!)
-        if(UserGlobal.favoritePokemons?.contains(argument?.pokemonResult) == true){
+        val verify = FavoritePokemon(
+            pokemonResult = argument?.pokemonResult,
+            dominant_color = argument?.dominantColor,
+            picture = argument?.picture
+        )
+        if(UserGlobal.favoritePokemons?.contains(verify) == true){
             binding.favoriteButton.isChecked = true
         }
 

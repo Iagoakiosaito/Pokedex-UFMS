@@ -4,9 +4,8 @@ import dev.progMob.pokeapiandroid.database.model.FavoritePokemon
 import dev.progMob.pokeapiandroidtask.database.dao.UserDao
 import dev.progMob.pokeapiandroidtask.database.entity.toUser
 import dev.progMob.pokeapiandroidtask.database.entity.toUserEntity
-import dev.progMob.pokeapiandroidtask.database.model.User
+import dev.progMob.pokeapiandroid.database.model.User
 import dev.progMob.pokeapiandroidtask.database.repository.RegistrationParams
-import dev.progMob.pokeapiandroidtask.model.PokemonResult
 import javax.inject.Inject
 
 class UserRepository @Inject constructor(

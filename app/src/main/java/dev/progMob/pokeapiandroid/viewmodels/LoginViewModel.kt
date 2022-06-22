@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.progMob.pokeapiandroid.R
 import dev.progMob.pokeapiandroid.database.repository.UserRepository
-import dev.progMob.pokeapiandroidtask.database.model.User
+import dev.progMob.pokeapiandroid.database.model.User
 import dev.progMob.pokeapiandroidtask.utils.encrypt
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope

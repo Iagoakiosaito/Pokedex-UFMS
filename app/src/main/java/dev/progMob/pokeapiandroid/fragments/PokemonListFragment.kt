@@ -7,6 +7,7 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
@@ -25,12 +26,14 @@ import dev.progMob.pokeapiandroid.R
 import dev.progMob.pokeapiandroid.databinding.FragmentPokemonListBinding
 import dev.progMob.pokeapiandroidtask.adapters.LoadingStateAdapter
 import dev.progMob.pokeapiandroid.adapters.PokemonAdapter
+import dev.progMob.pokeapiandroid.model.UserGlobal
 import dev.progMob.pokeapiandroidtask.fragments.ThankYouDialog
 import dev.progMob.pokeapiandroidtask.model.PokemonResult
 import dev.progMob.pokeapiandroidtask.utils.PRODUCT_VIEW_TYPE
 import dev.progMob.pokeapiandroidtask.utils.toast
 import dev.progMob.pokeapiandroidtask.utils.toggle
 import dev.progMob.pokeapiandroid.viewmodels.PokemonListViewModel
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect

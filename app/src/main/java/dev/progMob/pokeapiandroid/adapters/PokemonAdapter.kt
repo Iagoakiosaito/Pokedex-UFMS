@@ -124,7 +124,7 @@ class PokemonAdapter(private val navigate: (PokemonResult, Int, String?) -> Unit
         }
     }
 
-    private class PokemonDiffCallback : DiffUtil.ItemCallback<PokemonResult>() {
+    internal class PokemonDiffCallback : DiffUtil.ItemCallback<PokemonResult>() {
         override fun areItemsTheSame(oldItem: PokemonResult, newItem: PokemonResult): Boolean {
             return oldItem == newItem
         }
