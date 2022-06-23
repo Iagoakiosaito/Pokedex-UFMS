@@ -27,9 +27,7 @@ O usuário poderá pesquisar pelo nome dos pokemons, vê-los em uma listagem ún
 
 - **RF 2.0.** O sistema deverá ter a funcionalidade de login para usuários previamente cadastrados, usando seu nome e senha.
 
-- **RF 3.0.** O sistema deve ser capaz de realizar uma listagem em uma tela única dos pokémons no qual o usuário poderá navegar. 
-
-- **RF 4.0.**  O sistema deve ser capaz de apresentar uma listagem individual do pokemon, onde exibirá informações mais detalhadas sobre ele.
+- **RF 3.0.** O sistema deve ser capaz de realizar uma listagem em uma tela única dos pokémons no qual o usuário poderá navegar, utilizando a API PokeAPI. 
 
 - **RF 5.0.**  O sistema deverá permitir com que o usuário salve seus pokémons favoritos para visualizá-los depois.
 
