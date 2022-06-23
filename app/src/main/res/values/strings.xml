@@ -28,4 +28,6 @@
     <string name="to_user_profile">To user profile</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="favorite_pokemons">Favorite pokemons:</string>
+    <string name="no_pokemon_added">No pokemon added</string>
 </resources>

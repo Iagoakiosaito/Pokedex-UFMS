@@ -57,6 +57,7 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _: NavController, navDestination: NavDestination, _: Bundle? ->
             if (navDestination.id == R.id.loginFragment || navDestination.id == R.id.registerFragment) {
                 binding.mainToolbar.visibility = View.INVISIBLE
+                binding.mainToolbar.setBackgroundResource(R.color.green)
             } else {
                 binding.mainToolbar.visibility = View.VISIBLE
             }
@@ -67,6 +68,7 @@ class MainActivity : AppCompatActivity() {
                 binding.btnProfile.setImageBitmap(bmp)
             } else if (navDestination.id == R.id.profileFragment){
                 binding.btnProfile.visibility = View.INVISIBLE
+                binding.mainToolbar.setBackgroundResource(R.color.green)
                 binding.mainToolbar.title = ""
             }
         }

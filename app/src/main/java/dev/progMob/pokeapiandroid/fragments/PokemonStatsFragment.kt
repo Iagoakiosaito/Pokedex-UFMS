@@ -60,13 +60,11 @@ class PokemonStatsFragment : Fragment(R.layout.fragment_pokemon_stats) {
         if (dominantColor != 0) {
             dominantColor?.let { theColor ->
                 binding.card.setBackgroundColor(theColor)
-//                binding.toolbar.setBackgroundColor(theColor)
                 requireActivity().window.statusBarColor = theColor
             }
         }
 
         setupUI()
-//        (activity as AppCompatActivity).supportActionBar!!.title = pokemonResult?.name?.capitalize()
         val toolbar = activity?.findViewById<Toolbar>(R.id.main_toolbar)
         toolbar?.title = pokemonResult?.name?.capitalize()
 
