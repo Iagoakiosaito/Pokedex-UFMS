@@ -1,11 +1,11 @@
-package dev.progMob.pokeapiandroidtask.data.datasource
+package dev.progMob.pokeapiandroid.data.datasource
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import dev.progMob.pokeapiandroidtask.api.PokemonApi
-import dev.progMob.pokeapiandroidtask.model.PokemonResult
-import dev.progMob.pokeapiandroidtask.utils.SEARCH_LOAD_SIZE
-import dev.progMob.pokeapiandroidtask.utils.STARTING_OFFSET_INDEX
+import dev.progMob.pokeapiandroid.model.PokemonResult
+import dev.progMob.pokeapiandroid.utils.SEARCH_LOAD_SIZE
+import dev.progMob.pokeapiandroid.utils.STARTING_OFFSET_INDEX
 import java.io.IOException
 
 
@@ -38,7 +38,7 @@ class PokemonDataSource(private val pokemonApi: PokemonApi, private val searchSt
             var exception = t
 
             if (t is IOException) {
-                exception = IOException("Por favor, verifique a conexão com a Internet")
+                exception = IOException("Please, verify your internet connection")
             }
             LoadResult.Error(exception)
         }

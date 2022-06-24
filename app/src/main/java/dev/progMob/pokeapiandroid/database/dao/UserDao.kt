@@ -1,8 +1,8 @@
-package dev.progMob.pokeapiandroidtask.database.dao
+package dev.progMob.pokeapiandroid.database.dao
 
 import androidx.room.*
 import dev.progMob.pokeapiandroid.database.model.FavoritePokemon
-import dev.progMob.pokeapiandroidtask.database.entity.UserEntity
+import dev.progMob.pokeapiandroid.database.entity.UserEntity
 
 @Dao
 interface UserDao {
@@ -12,9 +12,6 @@ interface UserDao {
 
     @Query("SELECT * FROM user WHERE user.user_id = :userId")
     fun getUser(userId: Long): UserEntity
-
-//    @Query("SELECT user_favorite_pokemons FROM user WHERE user.user_id = :userId")
-//    fun getFavoritePokemonsFromCertainUser(userId: Long): List<FavoritePokemon>
 
     @Query("SELECT * FROM user WHERE user_name = :username AND user_password = :password")
     fun login(username: String, password: String): UserEntity

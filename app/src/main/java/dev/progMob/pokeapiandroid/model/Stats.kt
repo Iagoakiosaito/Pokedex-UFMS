@@ -1,6 +1,7 @@
-package dev.progMob.pokeapiandroidtask.model
+package dev.progMob.pokeapiandroid.model
 
 import android.os.Parcelable
+import dev.progMob.pokeapiandroid.model.Stat
 import kotlinx.parcelize.Parcelize
 
 @Parcelize

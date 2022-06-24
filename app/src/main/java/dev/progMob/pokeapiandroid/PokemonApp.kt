@@ -1,4 +1,4 @@
-package dev.progMob.pokeapiandroidtask
+package dev.progMob.pokeapiandroid
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

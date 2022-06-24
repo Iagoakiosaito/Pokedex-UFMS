@@ -6,9 +6,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.progMob.pokeapiandroid.R
-import dev.progMob.pokeapiandroidtask.database.repository.RegistrationParams
+import dev.progMob.pokeapiandroid.database.repository.RegistrationParams
 import dev.progMob.pokeapiandroid.database.repository.UserRepository
-import dev.progMob.pokeapiandroidtask.utils.encrypt
+import dev.progMob.pokeapiandroid.utils.encrypt
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch

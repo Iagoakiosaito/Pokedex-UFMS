@@ -2,8 +2,6 @@ package dev.progMob.pokeapiandroid.fragments
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -17,10 +15,10 @@ import dev.progMob.pokeapiandroid.database.model.FavoritePokemon
 import dev.progMob.pokeapiandroid.databinding.FragmentPokemonStatsBinding
 import dev.progMob.pokeapiandroid.model.UserGlobal
 import dev.progMob.pokeapiandroidtask.adapters.StatsAdapter
-import dev.progMob.pokeapiandroidtask.model.PokemonResult
-import dev.progMob.pokeapiandroidtask.model.Stats
-import dev.progMob.pokeapiandroidtask.utils.NetworkResource
-import dev.progMob.pokeapiandroidtask.utils.toast
+import dev.progMob.pokeapiandroid.model.PokemonResult
+import dev.progMob.pokeapiandroid.model.Stats
+import dev.progMob.pokeapiandroid.utils.NetworkResource
+import dev.progMob.pokeapiandroid.utils.toast
 import dev.progMob.pokeapiandroid.viewmodels.PokemonStatsViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay

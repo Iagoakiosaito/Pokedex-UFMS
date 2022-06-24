@@ -6,11 +6,9 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.progMob.pokeapiandroid.database.model.FavoritePokemon
 import dev.progMob.pokeapiandroid.database.repository.UserRepository
 import dev.progMob.pokeapiandroid.model.UserGlobal
-import dev.progMob.pokeapiandroidtask.data.repositories.PokemonRepository
-import dev.progMob.pokeapiandroidtask.database.repository.RegistrationParams
-import dev.progMob.pokeapiandroidtask.model.PokemonResult
-import dev.progMob.pokeapiandroidtask.utils.NetworkResource
-import dev.progMob.pokeapiandroidtask.utils.extractId
+import dev.progMob.pokeapiandroid.data.repositories.PokemonRepository
+import dev.progMob.pokeapiandroid.utils.NetworkResource
+import dev.progMob.pokeapiandroid.utils.extractId
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch

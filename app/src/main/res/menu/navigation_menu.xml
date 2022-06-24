@@ -3,13 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
     <item
-        android:id="@+id/a"
+        android:id="@+id/profileFragment"
         android:title="Profile"
         android:icon="@drawable/ic_person_outline">
     </item>
 
     <item
-        android:id="@+id/b"
+        android:id="@+id/loginFragment"
         android:title="LogOut"
         android:icon="@drawable/ic_exit_to_app">
     </item>

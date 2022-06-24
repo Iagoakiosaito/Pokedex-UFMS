@@ -1,4 +1,4 @@
-package dev.progMob.pokeapiandroidtask.utils
+package dev.progMob.pokeapiandroid.utils
 
 import android.content.Context
 import android.transition.Slide

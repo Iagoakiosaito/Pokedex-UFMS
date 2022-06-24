@@ -1,6 +1,6 @@
 package dev.progMob.pokeapiandroid.database.model
 
-import dev.progMob.pokeapiandroidtask.model.PokemonResult
+import dev.progMob.pokeapiandroid.model.PokemonResult
 
 data class FavoritePokemon (
     val pokemonResult: PokemonResult,

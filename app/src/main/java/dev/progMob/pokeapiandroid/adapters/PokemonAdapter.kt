@@ -18,10 +18,10 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import dev.progMob.pokeapiandroid.R
 import dev.progMob.pokeapiandroid.databinding.ListItemPokemonBinding
-import dev.progMob.pokeapiandroidtask.model.PokemonResult
-import dev.progMob.pokeapiandroidtask.utils.NETWORK_VIEW_TYPE
-import dev.progMob.pokeapiandroidtask.utils.PRODUCT_VIEW_TYPE
-import dev.progMob.pokeapiandroidtask.utils.getPicUrl
+import dev.progMob.pokeapiandroid.model.PokemonResult
+import dev.progMob.pokeapiandroid.utils.NETWORK_VIEW_TYPE
+import dev.progMob.pokeapiandroid.utils.PRODUCT_VIEW_TYPE
+import dev.progMob.pokeapiandroid.utils.getPicUrl
 
 //Paging Adapter belonging to paging 3 in Android jetpack, used to paginate data.
 class PokemonAdapter(private val navigate: (PokemonResult, Int, String?) -> Unit) :

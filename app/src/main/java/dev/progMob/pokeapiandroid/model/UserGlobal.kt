@@ -1,7 +1,6 @@
 package dev.progMob.pokeapiandroid.model
 
 import dev.progMob.pokeapiandroid.database.model.FavoritePokemon
-import dev.progMob.pokeapiandroidtask.model.PokemonResult
 
 class UserGlobal {
 

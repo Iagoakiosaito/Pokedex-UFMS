@@ -1,6 +1,4 @@
-package dev.progMob.pokeapiandroidtask.database.repository
-
-import dev.progMob.pokeapiandroidtask.model.PokemonResult
+package dev.progMob.pokeapiandroid.database.repository
 
 data class RegistrationParams (
 

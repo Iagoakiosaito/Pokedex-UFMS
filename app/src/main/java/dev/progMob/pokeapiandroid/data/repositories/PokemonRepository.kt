@@ -1,9 +1,10 @@
-package dev.progMob.pokeapiandroidtask.data.repositories
+package dev.progMob.pokeapiandroid.data.repositories
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import dev.progMob.pokeapiandroidtask.api.PokemonApi
-import dev.progMob.pokeapiandroidtask.data.datasource.PokemonDataSource
+import dev.progMob.pokeapiandroid.data.datasource.PokemonDataSource
+import dev.progMob.pokeapiandroid.data.repositories.BaseRepository
 import javax.inject.Inject
 import javax.inject.Singleton
 

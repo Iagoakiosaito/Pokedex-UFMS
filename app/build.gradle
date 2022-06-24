@@ -12,7 +12,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "dev.ronnie.pokeapiandroidtask"
+        applicationId "dev.progmob.pokeapiandroid"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1

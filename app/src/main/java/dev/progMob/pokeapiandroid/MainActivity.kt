@@ -35,7 +35,6 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host) as NavHostFragment
         val navController = navHostFragment.navController
         removeToolbarFromCertainFragments(navController)
-        setupSideNavigationMenu(navController)
         setupActionBar(navController)
         profileClickListener()
         requestPermission()
@@ -55,11 +54,18 @@ class MainActivity : AppCompatActivity() {
 
     private fun removeToolbarFromCertainFragments(navController: NavController) {
         navController.addOnDestinationChangedListener { _: NavController, navDestination: NavDestination, _: Bundle? ->
-            if (navDestination.id == R.id.loginFragment || navDestination.id == R.id.registerFragment) {
-                binding.mainToolbar.visibility = View.INVISIBLE
-                binding.mainToolbar.setBackgroundResource(R.color.green)
-            } else {
-                binding.mainToolbar.visibility = View.VISIBLE
+            when (navDestination.id) {
+                R.id.loginFragment -> {
+                    binding.mainToolbar.visibility = View.INVISIBLE
+                    binding.mainToolbar.setBackgroundResource(R.color.green)
+                }
+                R.id.registerFragment -> {
+                    binding.btnProfile.visibility = View.INVISIBLE
+                    binding.mainToolbar.visibility = View.VISIBLE
+                }
+                else -> {
+                    binding.mainToolbar.visibility = View.VISIBLE
+                }
             }
             if(navDestination.id == R.id.pokemonListFragment) {
                 binding.btnProfile.visibility = View.VISIBLE
@@ -74,11 +80,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupSideNavigationMenu(navController: NavController) {
-        binding.navView.let {
-            NavigationUI.setupWithNavController(it, navController)
-        }
-    }
 
     private fun setupActionBar(navController: NavController) {
         NavigationUI.setupActionBarWithNavController(this, navController, binding.drawerLayout)
@@ -88,11 +89,6 @@ class MainActivity : AppCompatActivity() {
         return ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val navController = Navigation.findNavController(this, R.id.nav_host)
-        val navigated = NavigationUI.onNavDestinationSelected(item, navController)
-        return navigated || super.onOptionsItemSelected(item)
-    }
 
     private fun requestPermission() {
         if(!checkPermission()){

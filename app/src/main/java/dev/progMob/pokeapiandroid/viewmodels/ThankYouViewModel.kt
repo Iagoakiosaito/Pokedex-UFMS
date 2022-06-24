@@ -1,9 +1,9 @@
-package dev.progMob.pokeapiandroidtask.viewmodels
+package dev.progMob.pokeapiandroid.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dev.progMob.pokeapiandroidtask.data.repositories.DataStoreRepository
+import dev.progMob.pokeapiandroid.data.repositories.DataStoreRepository
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

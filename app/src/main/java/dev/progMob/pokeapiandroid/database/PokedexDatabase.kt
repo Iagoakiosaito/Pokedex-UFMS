@@ -1,10 +1,10 @@
-package dev.progMob.pokeapiandroidtask.database
+package dev.progMob.pokeapiandroid.database
 
 import android.content.Context
 import androidx.room.*
 import dev.progMob.pokeapiandroid.database.converter.Converters
-import dev.progMob.pokeapiandroidtask.database.dao.UserDao
-import dev.progMob.pokeapiandroidtask.database.entity.UserEntity
+import dev.progMob.pokeapiandroid.database.dao.UserDao
+import dev.progMob.pokeapiandroid.database.entity.UserEntity
 
 @Database(entities = [UserEntity::class], exportSchema = false, version = 1)
 @TypeConverters(Converters::class)

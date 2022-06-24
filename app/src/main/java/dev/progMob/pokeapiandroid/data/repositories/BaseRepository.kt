@@ -1,6 +1,6 @@
-package dev.progMob.pokeapiandroidtask.data.repositories
+package dev.progMob.pokeapiandroid.data.repositories
 
-import dev.progMob.pokeapiandroidtask.utils.NetworkResource
+import dev.progMob.pokeapiandroid.utils.NetworkResource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException

@@ -10,7 +10,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.progMob.pokeapiandroid.R
 import dev.progMob.pokeapiandroid.database.repository.UserRepository
 import dev.progMob.pokeapiandroid.database.model.User
-import dev.progMob.pokeapiandroidtask.utils.encrypt
+import dev.progMob.pokeapiandroid.utils.encrypt
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch

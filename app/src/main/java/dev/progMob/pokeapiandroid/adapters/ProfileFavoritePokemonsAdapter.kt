@@ -17,8 +17,8 @@ import com.bumptech.glide.request.target.Target
 import dev.progMob.pokeapiandroid.R
 import dev.progMob.pokeapiandroid.database.model.FavoritePokemon
 import dev.progMob.pokeapiandroid.databinding.ListItemPokemonBinding
-import dev.progMob.pokeapiandroidtask.model.PokemonResult
-import dev.progMob.pokeapiandroidtask.utils.getPicUrl
+import dev.progMob.pokeapiandroid.model.PokemonResult
+import dev.progMob.pokeapiandroid.utils.getPicUrl
 
 
 class ProfileFavoritePokemonsAdapter(private val favoritePokemon: List<FavoritePokemon>) :

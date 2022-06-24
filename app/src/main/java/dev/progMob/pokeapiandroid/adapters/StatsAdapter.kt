@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import dev.progMob.pokeapiandroid.databinding.StatItemPokemonBinding
-import dev.progMob.pokeapiandroidtask.model.Stats
-import dev.progMob.pokeapiandroidtask.utils.MAX_BASE_STATE
+import dev.progMob.pokeapiandroid.model.Stats
+import dev.progMob.pokeapiandroid.utils.MAX_BASE_STATE
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay

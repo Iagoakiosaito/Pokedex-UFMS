@@ -1,4 +1,4 @@
-package dev.progMob.pokeapiandroidtask.fragments
+package dev.progMob.pokeapiandroid.fragments
 
 import android.os.Bundle
 import android.view.View
@@ -7,7 +7,7 @@ import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import dev.progMob.pokeapiandroid.R
 import dev.progMob.pokeapiandroid.databinding.DialogThankYouBinding
-import dev.progMob.pokeapiandroidtask.viewmodels.ThankYouViewModel
+import dev.progMob.pokeapiandroid.viewmodels.ThankYouViewModel
 import javax.inject.Inject
 
 @AndroidEntryPoint

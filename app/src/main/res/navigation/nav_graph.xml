@@ -27,7 +27,7 @@
 
         <argument
             android:name="pokemon_result"
-            app:argType="dev.progMob.pokeapiandroidtask.model.PokemonResult"
+            app:argType="dev.progMob.pokeapiandroid.model.PokemonResult"
             app:nullable="false" />
 
         <argument
@@ -54,7 +54,7 @@
 
     <fragment
         android:id="@+id/registerFragment"
-        android:name="dev.progMob.pokeapiandroidtask.fragments.RegisterFragment"
+        android:name="dev.progMob.pokeapiandroid.fragments.RegisterFragment"
         android:label="RegisterFragment" />
     <fragment
         android:id="@+id/profileFragment"

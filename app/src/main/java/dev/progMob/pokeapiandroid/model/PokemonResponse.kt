@@ -1,7 +1,6 @@
 package dev.progMob.pokeapiandroid.model
 
 import android.os.Parcelable
-import dev.progMob.pokeapiandroidtask.model.PokemonResult
 import kotlinx.parcelize.Parcelize
 
 @Parcelize

@@ -1,11 +1,11 @@
-package dev.progMob.pokeapiandroidtask.database.entity
+package dev.progMob.pokeapiandroid.database.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import dev.progMob.pokeapiandroid.database.model.FavoritePokemon
 import dev.progMob.pokeapiandroid.database.model.User
-import dev.progMob.pokeapiandroidtask.database.repository.RegistrationParams
+import dev.progMob.pokeapiandroid.database.repository.RegistrationParams
 
 @Entity(tableName = "user")
 data class UserEntity(
