@@ -10,6 +10,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.progMob.pokeapiandroid.R
 import dev.progMob.pokeapiandroid.database.repository.UserRepository
 import dev.progMob.pokeapiandroid.database.model.User
+import dev.progMob.pokeapiandroid.database.repository.IUserRepository
 import dev.progMob.pokeapiandroid.utils.encrypt
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -19,7 +20,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    private val userRepository: UserRepository
+    private val userRepository: IUserRepository
 ): ViewModel() {
 
     private val _userResult = MutableLiveData<User>()
@@ -37,7 +38,6 @@ class LoginViewModel @Inject constructor(
                 val encryptedPassword = encrypt(strToEncrypt = password)
                 var userResult: User?
                 userResult = userRepository.login(username = username, password = encryptedPassword!!)
-                val a  =  userResult
                 withContext(Dispatchers.Main){
                     if (userResult != null){
                         _userResult.postValue(userResult!!)

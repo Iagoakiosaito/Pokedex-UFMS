@@ -1,7 +1,5 @@
 package dev.progMob.pokeapiandroid.database.repository
 
-import dev.progMob.pokeapiandroid.database.entity.toUser
-import dev.progMob.pokeapiandroid.database.entity.toUserEntity
 import dev.progMob.pokeapiandroid.database.model.FavoritePokemon
 import dev.progMob.pokeapiandroid.database.model.User
 

@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.progMob.pokeapiandroid.R
+import dev.progMob.pokeapiandroid.database.repository.IUserRepository
 import dev.progMob.pokeapiandroid.database.repository.RegistrationParams
 import dev.progMob.pokeapiandroid.database.repository.UserRepository
 import dev.progMob.pokeapiandroid.utils.encrypt
@@ -16,7 +17,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RegisterViewModel @Inject constructor(
-    private val userRepository: UserRepository
+    private val userRepository: IUserRepository
     ):ViewModel() {
 
     val passwordError: LiveData<Int> get() = _usernameError

@@ -2,6 +2,7 @@ package dev.progMob.pokeapiandroid.di
 
 import android.app.Application
 import android.content.Context
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -12,6 +13,8 @@ import dev.progMob.pokeapiandroidtask.api.PokemonApi
 import dev.progMob.pokeapiandroid.data.repositories.DataStoreRepository
 import dev.progMob.pokeapiandroid.database.PokedexDatabase
 import dev.progMob.pokeapiandroid.database.dao.UserDao
+import dev.progMob.pokeapiandroid.database.repository.IUserRepository
+import dev.progMob.pokeapiandroid.database.repository.UserRepository
 import dev.progMob.pokeapiandroid.utils.BASE_URL
 import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
@@ -28,6 +31,8 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
+
+
 
     @Provides
     @Singleton
@@ -99,4 +104,6 @@ object AppModule {
     fun getDao(pokeDB: PokedexDatabase): UserDao {
         return pokeDB.userDao()
     }
+
+
 }
