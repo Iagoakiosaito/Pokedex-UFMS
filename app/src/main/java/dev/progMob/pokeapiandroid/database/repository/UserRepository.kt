@@ -27,7 +27,7 @@ class UserRepository @Inject constructor(
     }
 
     override fun updateFavoritePokemons(favoritePokemons: List<FavoritePokemon>, userId: Long){
-        return userDao.UpdateUserFavoritePokemons(favoritePokemons, userId)
+        return userDao.updateUserFavoritePokemons(favoritePokemons, userId)
     }
 
 }

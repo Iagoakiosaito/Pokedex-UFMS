@@ -17,5 +17,5 @@ interface UserDao {
     fun login(username: String, password: String): UserEntity
 
     @Query("UPDATE user SET user_favorite_pokemons = :favoritePokemons WHERE user_id = :userId")
-    fun UpdateUserFavoritePokemons(favoritePokemons: List<FavoritePokemon>, userId: Long)
+    fun updateUserFavoritePokemons(favoritePokemons: List<FavoritePokemon>, userId: Long)
 }
