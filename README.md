@@ -33,5 +33,6 @@ O usuário poderá pesquisar pelo nome dos pokemons, vê-los em uma listagem ún
 
 - **RF 6.0.** O sistema deve ter a possibilidade do usuário escolher entre temas de cores claras, ou escuras.
 
-##Vídeo de demonstração:
+## Vídeo de demonstração:
+
 ![](https://github.com/Iagoakiosaito/Pokedex-UFMS/blob/develop/demo/gif.gif)
