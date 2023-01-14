@@ -32,3 +32,6 @@ O usuário poderá pesquisar pelo nome dos pokemons, vê-los em uma listagem ún
 - **RF 5.0.**  O sistema deverá permitir com que o usuário salve seus pokémons favoritos para visualizá-los depois.
 
 - **RF 6.0.** O sistema deve ter a possibilidade do usuário escolher entre temas de cores claras, ou escuras.
+
+##Vídeo de demonstração:
+![](https://github.com/Iagoakiosaito/Pokedex-UFMS/blob/develop/demo/gif.gif)
